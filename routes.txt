@@ -1,0 +1,12 @@
+АДМИН----
+[GET][POST][PUT][DELETE] webmasters
+[GET][POST][PUT][DELETE] apps
+[GET][POST][PUT][DELETE] dolphin_accounts
+[GET][POST][PUT][DELETE] share_tasks
+[GET][POST][PUT][DELETE] id_accounts
+[GET][POST][PUT][DELETE] workers
+
+ВЕБМАСТЕР----
+[GET] apps
+[GET][POST][PUT][DELETE] share_tasks
+[GET][POST][PUT][DELETE] id_accounts
