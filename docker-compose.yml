@@ -1,0 +1,50 @@
+version: "3.8"
+
+  services: 
+    # Admin
+    simpler-admin:
+      container_name: simpler-admin
+      build:
+        context: ./admin
+      restart: always
+      ports:
+        - 3000:3000
+
+    # Webmaster
+    simpler-webmaster:
+      container_name: simpler-webmaster
+      build:
+        context: ./webmaster
+      restart: always
+      ports:
+        - 3001:3001
+
+    # Mysql
+    simpler-mysql:
+      container_name: simpler-mysql
+      image: mysql:5.7.36
+      restart: unless-stopped
+      environment:
+        MYSQL_ROOT_PASSWORD: root_pass
+        MYSQL_DATABASE: ovdk_db
+    
+    # PhpMyAdmin
+    simpler-phpmyadmin:
+      container_name: simpler-phpmyadmin
+      image: phpmyadmin:5.1.1
+      restart: always
+      environment:
+        PMA_HOST: simpler-mysql
+        MYSQL_ROOT_PASSWORD: root_pass
+      ports:
+        - 3003:80
+
+    # Nginx
+    # simpler-nginx:
+    #   container_name: simpler-nginx
+    #   image: nginx:stable-alpine
+    #   ports: 
+    #     - 80:80
+    #   volumes:
+    #   - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      
