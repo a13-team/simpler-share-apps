@@ -7,6 +7,9 @@ version: "3.8"
       build:
         context: ./admin
       restart: always
+      environment: 
+        NODE_ENV: production
+        HOST: 0.0.0.0
       ports:
         - 3000:3000
 
@@ -16,6 +19,9 @@ version: "3.8"
       build:
         context: ./webmaster
       restart: always
+      environment: 
+        NODE_ENV: production
+        HOST: 0.0.0.0
       ports:
         - 3001:3001
 
@@ -38,13 +44,4 @@ version: "3.8"
         MYSQL_ROOT_PASSWORD: root_pass
       ports:
         - 3003:80
-
-    # Nginx
-    # simpler-nginx:
-    #   container_name: simpler-nginx
-    #   image: nginx:stable-alpine
-    #   ports: 
-    #     - 80:80
-    #   volumes:
-    #   - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
       

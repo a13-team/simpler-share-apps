@@ -1,8 +1,8 @@
 FROM node:14-alpine
 
-WORKDIR /usr/src/webmaster
+WORKDIR /usr/src/admin
 
-COPY . /usr/src/webmaster
+COPY . /usr/src/admin
 
 RUN npm ci
 RUN npm run build
